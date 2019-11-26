@@ -15,6 +15,7 @@ app.get("/",(req,res)=>{
 
 app.get("/:id",(req,res)=>{
 
+  console.log(req.params.id);
 
 (async function(){
   
@@ -22,8 +23,8 @@ try{
 let url="https://fantasy.premierleague.com/api/entry/"+req.params.id+"/";
 let data = await fetch(url);
 data = await data.json()
-console.log(data);
-res.send(JSON.stringify(data));
+
+res.send(data);
 
 
 }
