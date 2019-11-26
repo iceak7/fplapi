@@ -7,7 +7,7 @@ app.use(cors());
 
 app.get("/",(req,res)=>{
 
-  res.send(index.html);
+  res.send("Test");
 
 });
 
@@ -18,9 +18,9 @@ app.get("/:id",(req,res)=>{
 (async function(){
   let data="test";
 try{
-data = await fetch(`https://fantasy.premierleague.com/api/leagues-classic/${req.params.id}/standings/`);
+data = await fetch(`https://fantasy.premierleague.com/api/entry/${req.params.id}/`);
 data = await data.json();
-res.send(data);
+res.send(data.player_first_name);
 
 
 }
