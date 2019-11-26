@@ -45,4 +45,4 @@ console.log(err);
 
 });
 const port = process.env.PORT || 3000;
-app.listen(3000, ()=>console.log(3000));
+app.listen(port, () => console.log("http is running on port 3000"));
