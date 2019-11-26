@@ -1,9 +1,11 @@
-const fetch = require('node-fetch');
+const fetch = require('node-fetch'); 
 const cors = require("cors");
 const express = require("express");
 
 const app = express();
 app.use(cors());
+
+app.use(express.static(__dirname+"/public"))
 
 app.get("/",(req,res)=>{
 
@@ -14,13 +16,14 @@ app.get("/",(req,res)=>{
 app.get("/:id",(req,res)=>{
 
 
-
 (async function(){
-  let data="test";
+  
 try{
-data = await fetch(`https://fantasy.premierleague.com/api/entry/${req.params.id}/`);
-data = await data.json();
-res.send(data.player_first_name);
+let url="https://fantasy.premierleague.com/api/entry/"+req.params.id+"/";
+let data = await fetch(url);
+data = await data.json()
+console.log(data);
+res.send(JSON.stringify(data));
 
 
 }
