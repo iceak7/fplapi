@@ -47,6 +47,22 @@ app.get("/transfers/:id", (req,res)=>{
     
 });
 
+app.get("/history/:id",(req,res)=>{
+  (async function(){
+  
+    try{
+    let url="https://fantasy.premierleague.com/api/entry/"+req.params.id+"/history/";
+    let data = await fetch(url);
+    data = await data.json();
+    res.send(data);
+    }
+    catch(err)
+    {
+    console.log(err);
+    }
+  })();
+});
+
 app.get("/:id",(req,res)=>{
 
   console.log(req.params.id);
