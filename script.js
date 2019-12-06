@@ -30,6 +30,23 @@ app.get("/static",(req,res)=>{
 
 });
 
+app.get("/gwteam/:id/gw/:gw", (req,res)=>{
+  (async function(){
+  
+    try{
+    let url="https://fantasy.premierleague.com/api/entry/"+req.params.id+"/event/"+req.params.gw+"/picks/";
+    let data = await fetch(url);
+    data = await data.json();
+    res.send(data);
+    }
+    catch(err)
+    {
+    console.log(err);
+    }
+  })();
+});
+
+
 app.get("/transfers/:id", (req,res)=>{
   (async function(){
   
@@ -63,7 +80,7 @@ app.get("/history/:id",(req,res)=>{
   })();
 });
 
-app.get("/:id",(req,res)=>{
+app.get("/entry/:id",(req,res)=>{
 
   console.log(req.params.id);
 
