@@ -64,6 +64,22 @@ app.get("/transfers/:id", (req,res)=>{
     
 });
 
+app.get("/element-summary/:id",(req,res)=>{
+  (async function(){
+  
+    try{
+    let url="https://fantasy.premierleague.com/api/element-summary/"+req.params.id+"/";
+    let data = await fetch(url);
+    data = await data.json();
+    res.send(data);
+    }
+    catch(err)
+    {
+    console.log(err);
+    }
+  })();
+});
+
 app.get("/history/:id",(req,res)=>{
   (async function(){
   
