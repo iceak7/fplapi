@@ -1,7 +1,6 @@
 {
   "name": "getfplapi",
   "version": "1.0.0",
-  "description": "",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,8 +8,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.20.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "node-fetch": "^2.6.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iceak7/fplapi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iceak7/fplapi/issues"
+  },
+  "homepage": "https://github.com/iceak7/fplapi#readme",
+  "description": ""
 }
