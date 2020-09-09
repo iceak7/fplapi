@@ -53,7 +53,7 @@ app.get("/transfers/:id", async (req, res) => {
       mode: "no-cors",
       headers: { accept: "application/json" },
     });
-    res.send(data);
+    res.send(resp.data);
   } catch (err) {
     console.log(err);
   }
@@ -69,7 +69,7 @@ app.get("/element-summary/:id", async (req, res) => {
       mode: "no-cors",
       headers: { accept: "application/json" },
     });
-    res.send(data);
+    res.send(resp.data);
   } catch (err) {
     console.log(err);
   }
@@ -85,7 +85,7 @@ app.get("/history/:id", async (req, res) => {
       mode: "no-cors",
       headers: { accept: "application/json" },
     });
-    res.send(data);
+    res.send(resp.data);
   } catch (err) {
     console.log(err);
   }
@@ -100,7 +100,7 @@ app.get("/entry/:id", async (req, res) => {
       headers: { accept: "application/json" },
     });
 
-    res.send(data);
+    res.send(resp.data);
   } catch (err) {
     console.log(err);
   }
