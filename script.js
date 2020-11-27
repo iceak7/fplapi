@@ -1,5 +1,5 @@
 const cors = require("cors");
-const axios = require("axios");
+const fetch = require("node-fetch");
 const express = require("express");
 
 const app = express();
@@ -14,11 +14,16 @@ app.get("/static", async (req, res) => {
   try {
     let url = "https://fantasy.premierleague.com/api/bootstrap-static/";
 
-    const resp = await axios.get(url, {
-      mode: "no-cors",
-      headers: { accept: "application/json" },
+    console.log(url);
+    let data = await fetch(url, {
+      method: "GET",
+      headers: {
+        "user-agent": "Mozilla/4.0 MDN Example",
+        "content-type": "application/json",
+      },
     });
-    res.send(resp.data);
+    data = await data.json();
+    res.send(data);
   } catch (err) {
     console.log(err);
   }
@@ -33,11 +38,15 @@ app.get("/gwteam/:id/gw/:gw", async (req, res) => {
       req.params.gw +
       "/picks/";
 
-    const resp = await axios.get(url, {
-      mode: "no-cors",
-      headers: { accept: "application/json" },
-    });
-    res.send(resp.data);
+      let data = await fetch(url, {
+        method: "GET",
+        headers: {
+          "user-agent": "Mozilla/4.0 MDN Example",
+          "content-type": "application/json",
+        },
+      });
+      data = await data.json();
+      res.send(data);
   } catch (err) {
     console.log(err);
   }
@@ -49,11 +58,15 @@ app.get("/transfers/:id", async (req, res) => {
       "https://fantasy.premierleague.com/api/entry/" +
       req.params.id +
       "/transfers/";
-    const resp = await axios.get(url, {
-      mode: "no-cors",
-      headers: { accept: "application/json" },
-    });
-    res.send(resp.data);
+      let data = await fetch(url, {
+        method: "GET",
+        headers: {
+          "user-agent": "Mozilla/4.0 MDN Example",
+          "content-type": "application/json",
+        },
+      });
+      data = await data.json();
+      res.send(data);
   } catch (err) {
     console.log(err);
   }
@@ -65,11 +78,15 @@ app.get("/element-summary/:id", async (req, res) => {
       "https://fantasy.premierleague.com/api/element-summary/" +
       req.params.id +
       "/";
-    const resp = await axios.get(url, {
-      mode: "no-cors",
-      headers: { accept: "application/json" },
-    });
-    res.send(resp.data);
+      let data = await fetch(url, {
+        method: "GET",
+        headers: {
+          "user-agent": "Mozilla/4.0 MDN Example",
+          "content-type": "application/json",
+        },
+      });
+      data = await data.json();
+      res.send(data);
   } catch (err) {
     console.log(err);
   }
@@ -81,11 +98,15 @@ app.get("/history/:id", async (req, res) => {
       "https://fantasy.premierleague.com/api/entry/" +
       req.params.id +
       "/history/";
-    const resp = await axios.get(url, {
-      mode: "no-cors",
-      headers: { accept: "application/json" },
-    });
-    res.send(resp.data);
+      let data = await fetch(url, {
+        method: "GET",
+        headers: {
+          "user-agent": "Mozilla/4.0 MDN Example",
+          "content-type": "application/json",
+        },
+      });
+      data = await data.json();
+      res.send(data);
   } catch (err) {
     console.log(err);
   }
@@ -95,12 +116,15 @@ app.get("/entry/:id", async (req, res) => {
   try {
     let url =
       "https://fantasy.premierleague.com/api/entry/" + req.params.id + "/";
-    const resp = await axios.get(url, {
-      mode: "no-cors",
-      headers: { accept: "application/json" },
-    });
-
-    res.send(resp.data);
+      let data = await fetch(url, {
+        method: "GET",
+        headers: {
+          "user-agent": "Mozilla/4.0 MDN Example",
+          "content-type": "application/json",
+        },
+      });
+      data = await data.json();
+      res.send(data);
   } catch (err) {
     console.log(err);
   }
